@@ -260,13 +260,13 @@ eks-upgrade-check -c my-cluster -t 1.31 -o markdown -f report.md
 ## How it works
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    eks-upgrade-check                         │
-│                                                             │
+┌────────────────────────────────────────────────────────────┐
+│                    eks-upgrade-check                       │
+│                                                            │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐  │
 │  │   AWS APIs   │  │   kubectl    │  │    helm CLI      │  │
 │  │              │  │              │  │                  │  │
-│  │ • EKS        │  │ • Nodes      │  │ • Release list   │  │
+│  │ • EKS        │  │ • Nodes      │  │ • Release list   │  │ 
 │  │   Insights   │  │ • Workloads  │  │ • Chart versions │  │
 │  │ • Cluster    │  │ • PDBs       │  │ • Status         │  │
 │  │   describe   │  │ • SAs / IRSA │  │                  │  │
@@ -276,16 +276,16 @@ eks-upgrade-check -c my-cluster -t 1.31 -o markdown -f report.md
 │  │ • IAM roles  │  │   impact     │  │                  │  │
 │  │ • SSM (AMIs) │  │              │  │                  │  │
 │  └──────────────┘  └──────────────┘  └──────────────────┘  │
-│                           │                                 │
-│                    ┌──────▼──────┐                          │
-│                    │  Unified    │                          │
-│                    │  Report     │                          │
-│                    │             │                          │
-│                    │ • Terminal  │                          │
-│                    │ • JSON      │                          │
-│                    │ • Markdown  │                          │
-│                    └─────────────┘                          │
-└─────────────────────────────────────────────────────────────┘
+│                           │                                │
+│                    ┌──────▼──────┐                         │
+│                    │  Unified    │                         │
+│                    │  Report     │                         │
+│                    │             │                         │
+│                    │ • Terminal  │                         │
+│                    │ • JSON      │                         │
+│                    │ • Markdown  │                         │
+│                    └─────────────┘                         │
+└────────────────────────────────────────────────────────────┘
 ```
 
 ## Available checks
