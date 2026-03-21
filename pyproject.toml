@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eks-upgrade-check"
+version = "0.1.0"
+description = "Pre-flight readiness checker for Amazon EKS Kubernetes upgrades"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Aman"},
+]
+keywords = ["eks", "kubernetes", "aws", "upgrade", "devops", "k8s"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+dependencies = [
+    "boto3>=1.28.0",
+    "click>=8.0.0",
+    "kubernetes>=28.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "moto[eks,ec2,iam,elbv2]>=5.0",
+    "ruff",
+]
+
+[project.scripts]
+eks-upgrade-check = "eks_upgrade_check.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/AmanSK5/eks-upgrade-check"
+Repository = "https://github.com/AmanSK5/eks-upgrade-check"
+Issues = "https://github.com/AmanSK5/eks-upgrade-check/issues"
+
+[tool.setuptools.packages.find]
+include = ["eks_upgrade_check*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
